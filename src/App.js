@@ -30,7 +30,7 @@ class App extends Component {
 					<h1>MovieDB</h1>
 				</header>
 				{this.state.movies.map(movie => (
-					<Movie key={movie.id} movie={movie} desc={movie.overview} />
+					<Movie key={movie.id} movie={movie} />
 				))}
 			</div>
 		);
