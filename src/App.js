@@ -1,27 +1,40 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Does this work?</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Movie from "./Movie";
+
+class App extends Component {
+	state = {
+		movies: [],
+	};
+
+	async componentDidMount() {
+		try {
+			const res = await fetch(
+				"https://api.themoviedb.org/3/discover/movie?api_key=dca6ba47ee045002b2c647232f48e550",
+			);
+			const movies = await res.json();
+			console.log(movies);
+			this.setState({
+				movies: movies.results,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<h1>MovieDB</h1>
+				</header>
+				{this.state.movies.map(movie => (
+					<Movie key={movie.id} movie={movie} desc={movie.overview} />
+				))}
+			</div>
+		);
+	}
 }
 
 export default App;
