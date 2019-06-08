@@ -19,7 +19,7 @@ class MovieDetail extends Component {
 				}?api_key=dca6ba47ee045002b2c647232f48e550`,
 			);
 			const movie = await res.json();
-			console.log(movie);
+
 			this.setState({
 				movie: movie,
 			});

@@ -2,18 +2,20 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
-class MoviesList extends PureComponent {
+class SearchList extends PureComponent {
 	state = {
 		movies: [],
 	};
 
 	async componentDidMount() {
+		console.log(this.props);
 		try {
 			const res = await fetch(
-				"https://api.themoviedb.org/3/discover/movie?api_key=dca6ba47ee045002b2c647232f48e550",
+				`https://api.themoviedb.org/3/search/movie?api_key=dca6ba47ee045002b2c647232f48e550&query=${
+					this.props.match.params.term
+				}`,
 			);
 			const movies = await res.json();
-
 			this.setState({
 				movies: movies.results,
 			});
@@ -33,7 +35,7 @@ class MoviesList extends PureComponent {
 	}
 }
 
-export default MoviesList;
+export default SearchList;
 
 const MovieGrid = styled.div`
 	display: grid;
