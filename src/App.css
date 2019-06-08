@@ -4,11 +4,18 @@
 
 .App-header {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	background-color: #111;
 	height: 100px;
 	color: white;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 60px; 
+	padding-right: 60px;
+}
+
+.App-header h1 {
+	margin-right: auto; 
+	font-size: 48px; 
 }
 
 .App-link {
