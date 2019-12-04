@@ -7,6 +7,18 @@ const MovieGrid = styled.div`
 	padding: 1rem;
 	grid-template-columns: repeat(6, 1fr);
 	grid-row-gap: 1rem;
+	
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(3, 1fr);
+		padding: 0.5rem;
+		grid-row-gap: 0.5rem;
+	}
+
+	@media (max-width: 414px) {
+		grid-template-columns: repeat(2, 1fr);
+		padding: 0.5rem;
+		grid-row-gap: 0.5rem;
+	}
 `;
 
 class SearchList extends PureComponent {

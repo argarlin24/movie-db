@@ -1,2 +1,2 @@
 export * from "./Poster";
-export * from "./Wrapper";
+export * from "./Flex";
