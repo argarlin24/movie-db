@@ -2,6 +2,29 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+const StyledInput = styled.input`
+	padding: 8px 15px;
+	margin-left: 5px;
+	margin-right: 10px;
+	border-radius: 5px;
+	border-style: none;
+	font-size: 12px;
+`;
+
+const InputBtn = styled.button`
+	font-size: 16px;
+	padding: 8px 20px;
+	border-radius: 5px;
+	border-style: none;
+	font-weight: 600;
+	cursor: pointer;
+`;
+
+const StyledLabel = styled.label`
+	font-size: 16px;
+	font-weight: bold;
+`;
+
 class Search extends Component {
 	state = {
 		value: "",
@@ -18,12 +41,12 @@ class Search extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		if (this.state.value < 1 ) {
+		if (this.state.value < 1) {
 			alert("Please enter a search term");
 		} else {
 			const searchTerm = this.state.value
-			.toLocaleLowerCase()
-			.replace(/ /g, "+");
+				.toLocaleLowerCase()
+				.replace(/ /g, "+");
 			this.props.history.push(`/search/${searchTerm}`);
 			this.setState({
 				search: !this.state.searchTerm,
@@ -49,34 +72,12 @@ class Search extends Component {
 					type="submit"
 					value="Submit"
 					onClick={this.handleSubmit}
-				> 
-				Submit
+				>
+					Submit
 				</InputBtn>
-
 			</form>
 		);
 	}
 }
 
 export default withRouter(Search);
-
-const StyledInput = styled.input`
-	padding: 8px 15px; 
-	margin-left: 5px; 
-	margin-right: 10px; 
-	border-radius: 5px; 
-	border-style: none; 
-	font-size: 12px;
-`;
-
-const InputBtn = styled.button`
-	font-size: 16px; 
-	padding: 8px 20px; 
-	border-radius: 5px; 
-	cursor: pointer; 
-`;
-
-const StyledLabel = styled.label`
-	font-size: 16px; 
-	font-weight: bold;
-`;

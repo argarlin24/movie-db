@@ -6,6 +6,27 @@ import { Poster } from "../elements/Poster";
 const Poster_Path = "http://image.tmdb.org/t/p/w154//";
 const BackDrop_Path = "http://image.tmdb.org/t/p/w1280//";
 
+const MovieWrapper = styled.div`
+	position: relative;
+	padding-top: 50vh;
+	background-size: cover;
+	background: url(${props => props.backdrop}) no-repeat;
+`;
+
+const MovieInfo = styled.div`
+	background: #fff;
+	text-align: left;
+	padding: 2rem 10%;
+	display: flex;
+	> div {
+		margin-left: 20px;
+	}
+	img {
+		position: relative;
+		top: -5rem;
+	}
+`;
+
 class MovieDetail extends Component {
 	state = {
 		movie: {},
@@ -51,24 +72,3 @@ class MovieDetail extends Component {
 }
 
 export default MovieDetail;
-
-const MovieWrapper = styled.div`
-	position: relative;
-	padding-top: 50vh;
-	background-size: cover;
-	background: url(${props => props.backdrop}) no-repeat;
-`;
-
-const MovieInfo = styled.div`
-	background: #fff;
-	text-align: left;
-	padding: 2rem 10%;
-	display: flex;
-	> div {
-		margin-left: 20px;
-	}
-	img {
-		position: relative;
-		top: -5rem;
-	}
-`;

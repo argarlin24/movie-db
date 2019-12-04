@@ -2,6 +2,13 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
+const MovieGrid = styled.div`
+	display: grid;
+	padding: 1rem;
+	grid-template-columns: repeat(6, 1fr);
+	grid-row-gap: 1rem;
+`;
+
 class MoviesList extends PureComponent {
 	state = {
 		movies: [],
@@ -34,10 +41,3 @@ class MoviesList extends PureComponent {
 }
 
 export default MoviesList;
-
-const MovieGrid = styled.div`
-	display: grid;
-	padding: 1rem;
-	grid-template-columns: repeat(6, 1fr);
-	grid-row-gap: 1rem;
-`;
